@@ -10,10 +10,13 @@ public class BottomPanel extends JPanel implements ActionListener {
     JTextField textField;
     JTextArea history;
     JLabel colon;
+    JLabel version;
     JPanel boxed;
     boolean gameOver = false;
+    String v = "1.0";
 
     BottomPanel() {
+        version = new JLabel(v);
         boxed = new JPanel();
         colon = new JLabel(":");
         textField = new JTextField(16);
@@ -38,13 +41,17 @@ public class BottomPanel extends JPanel implements ActionListener {
         history.setLineWrap(true);
         history.setBorder(BorderFactory.createMatteBorder(1, 0, 0, 0, Color.black));
 
+        version.setFont(new Font("Monospaced", Font.PLAIN, 10));
+        version.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,140,0,0));
+
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setBackground(Color.WHITE);
         this.setBorder(BorderFactory.createMatteBorder(0,5,0,5,Color.WHITE));
         this.add(boxed);
         this.add(history);
+        this.add(version);
+
     }
-    
 
     @Override
     public void actionPerformed(ActionEvent e) {
